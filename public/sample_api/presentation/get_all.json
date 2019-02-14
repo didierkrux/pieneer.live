@@ -1,0 +1,14 @@
+{
+    "presentations": [
+        {
+            "title": "Presentation event title 1",
+            "slide": "http://dj.local:8181/html_mock-up/presentation-slide-example/slide-1.jpg",
+            "id": 1
+        },
+        {
+            "title": "Presentation event title 2",
+            "slide": "http://dj.local:8181/html_mock-up/presentation-slide-example/slide-3.jpg",
+            "id": 2
+        }
+    ]
+}

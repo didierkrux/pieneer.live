@@ -1,0 +1,179 @@
+body {
+    background: black;
+}
+
+.slide {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+
+.slide-html, .slide-poll, .slide-q_a {
+    background: white;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+div.control {
+    position: absolute;
+    top: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+div.control a {
+    width: 42px;
+    height: 42px;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+div.control a:hover {
+    background-color: #E3E3E3;
+}
+
+div.control a.selected {
+    background-color: #D6D6D6;
+}
+
+#presentation {
+    width: 100vw;
+    height: 100vh;
+}
+
+div.presentation-control {
+    left: 60px;
+}
+
+div.drawing-control {
+    right: 60px;
+}
+
+i {
+    color: grey;
+}
+
+a:hover {
+    text-decoration: unset;
+}
+
+div.tools {
+    height: 42px;
+}
+
+div.colors {
+    height: 42px;
+    margin-top: 4px;
+}
+
+.colors div {
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    margin: 5px;
+}
+
+.color-black div {
+    background-color: #000000;
+}
+
+.color-red div {
+    background-color: #f7412d;
+}
+
+.color-green div {
+    background-color: #47b04b;
+}
+
+.color-blue div {
+    background-color: #1194f6;
+}
+
+.color-yellow div {
+    background-color: #ffc200;
+}
+
+.color-purple div {
+    background-color: #9d1bb2;
+}
+
+.color-pink div {
+    background-color: #ec1561;
+}
+
+.color-brown div {
+    background-color: #7a5547;
+}
+
+.color-grey div {
+    background-color: #ced4da;
+}
+
+.color-white div {
+    background-color: #ffffff;
+}
+
+#drawing {
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+#drawing.white-background {
+    background: white;
+}
+
+#drawing>canvas {
+    border-top: 0 !important;
+    top: 50px !important;
+    /* height: 32px !important; */
+    left: calc(100vw - 300px) !important;
+}
+
+.question-container {
+    height: 25vh;
+    padding: 50px;
+}
+
+.q_a-container {
+    height: 40vh;
+    padding: 50px;
+}
+
+.question-container .list-group, .q_a-container .list-group {
+    margin-top: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+.chart-container {
+    height: 75vh;
+    padding: 0 100px 50px 100px;
+}
+
+.list-group-item:nth-child(even) {
+    background: #f8f9fa;
+}
+
+#url {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+}

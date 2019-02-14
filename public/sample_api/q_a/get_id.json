@@ -1,0 +1,21 @@
+{
+    "id": 5,
+    "title": "Question & Answer",
+    "questions": [
+        {
+            "question": "question 1",
+            "name": "name",
+            "likes": 4
+        },
+        {
+            "question": "question 2",
+            "name": "other name",
+            "likes": 2
+        },
+        {
+            "question": "question 3",
+            "name": "other name",
+            "likes": 0
+        }
+    ]
+}

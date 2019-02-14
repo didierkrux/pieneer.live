@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit presentation | Pieneer - Live Presentation made Interactive and Easy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="/css/main_desktop.css">
+    <link rel="stylesheet" href="/css/edit_presentation.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img src="/img/pieneer_logo.svg"> Pieneer</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav navbar-text">
+            <li>
+                <a href="#" alt="Edit User Infos" data-toggle="modal" data-target="#editUserModal">
+                    <i class="fas fa-user fa-lg"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/logout" alt="Log Out">
+                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid presentation row no-gutters p-0">
+        <div class="list col mt-4">
+            <div class="save-play mb-3">
+                <a href="#" id="save-presentation">
+                    <button data-toggle="tooltip" class="btn btn-danger" type="button" title="Save Presentation">
+                        <i class="fas fa-save fa-lg"></i>
+                    </button>
+                </a>
+                <a href="#" target="_blank" id="play-presentation">
+                    <button data-toggle="tooltip" class="btn btn-success" type="button" title="Play Presentation">
+                        <i class="far fa-play-circle fa-lg"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="actions">
+                <button data-toggle="tooltip" class="btn btn-info" type="button" id="insert-ppt" title="Insert PPT">
+                    <i class="fas fa-file-powerpoint"></i>
+                </button>
+                <button data-toggle="tooltip" class="btn btn-info" type="button" id="insert-image" title="Insert image(s)">
+                    <i class="fas fa-file-image"></i>
+                </button>
+                <button data-toggle="tooltip" class="btn btn-info" type="button" id="insert-poll" title="Insert poll">
+                    <i class="fas fa-chart-bar"></i>
+                </button>
+                <button data-toggle="tooltip" class="btn btn-info" type="button" id="insert-qa" title="Insert Q&A">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <button data-toggle="tooltip" class="btn btn-danger" type="button" id="delete-slide" title="Delete slide">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+        <div class="preview">
+
+        </div>
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+    </div>
+
+    <!-- Upload PPT Modal -->
+    <div class="modal fade" tabindex="-1" id="uploadPPTModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Powerpoint</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/slides/upload-ppt" method="POST" id="my-dropzone-ppt" class="dropzone needsclick dz-clickable">
+                        <div class="dz-message needsclick">
+                            Drop files here or click to upload.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary insert-ppt">Insert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload PPT Modal -->
+    <div class="modal fade" tabindex="-1" id="uploadImageModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Image(s)</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/slides/upload-image" method="POST" id="my-dropzone-image" class="dropzone needsclick dz-clickable">
+                        <div class="dz-message needsclick">
+                            Drop files here or click to upload.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary insert-image">Insert</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit user infos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/api/users" method="PUT" id="form-user">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="first_name">Firstname</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="first_name" value="" id="firstname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="last_name">Lastname</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="last_name" value="" id="lastname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="email">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="email" value="" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="phone">Phone</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="phone" value="" id="phone">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="company">Company</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="company" value="" id="company">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary save-user">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script src="/js/edit_presentation.js"></script>
+<script src="/js/user-infos.js"></script>
+
+</html>

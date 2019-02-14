@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mobile - Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <style>
+        li {
+            cursor: pointer;
+        }
+
+        .description {
+            display: none;
+        }
+
+        .btn-sm {
+            float: right;
+        }
+
+        .jumbotron {
+            height: 30vh;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron row align-items-center justify-content-center text-center">
+        <div class="col">
+            <form action="event.html" method="GET">
+                <input type="text" id="event" name="event" placeholder="# Enter event code">
+                <input type="submit" class="btn btn-primary" value="JOIN">
+            </form>
+        </div>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="event">
+                Event name 1 (click for details)
+                <a href="event.html" class="btn btn-primary btn-sm">JOIN</a>
+            </div>
+            <div class="description">
+                <p>Description: Event description</p>
+                <p>Location: Hong Kong</p>
+                <p>Speaker: Speaker Name</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="event">
+                Event name 2 (click for details)
+                <a href="event.html" class="btn btn-primary btn-sm">JOIN</a>
+            </div>
+            <div class="description">
+                <p>Description: Event description</p>
+                <p>Location: Hong Kong</p>
+                <p>Speaker: Speaker Name</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="event">
+                Event name 3 (click for details)
+                <a href="event.html" class="btn btn-primary btn-sm">JOIN</a>
+            </div>
+            <div class="description">
+                <p>Description: Event description</p>
+                <p>Location: Hong Kong</p>
+                <p>Speaker: Speaker Name</p>
+            </div>
+        </li>
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script>
+        $('.event').click(function (e) {
+            $(this).next().toggle();
+        });
+        $('form').submit(function (e) {
+            if($('#event').val()=='') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

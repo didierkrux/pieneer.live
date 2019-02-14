@@ -1,0 +1,57 @@
+{
+    "title": "Presentation event title",
+    "id": 1,
+    "location": "Hong Kong",
+    "date": "2018/05/12 19:00",
+    "speaker":"Speaker Name (s)",
+    "email":"email@domain.com",
+    "phone":"(+852) 0000 0000",
+    "slides": [
+        {
+            "type": "image",
+            "id": 1,
+            "link": "/html_mock-up/presentation-slide-example/slide-1.jpg"
+        },
+        {
+            "type": "image",
+            "id": 2,
+            "link": "/html_mock-up/presentation-slide-example/slide-2.jpg"
+        },
+        {
+            "type": "poll",
+            "id": 3,
+            "question": "Poll question?",
+            "graph_type": "bar",
+            "answers": [
+                "response 1",
+                "response 2",
+                "response 3",
+                "response 4"
+            ]
+        },
+        {
+            "type": "image",
+            "id": 4,
+            "link": "/html_mock-up/presentation-slide-example/slide-3.jpg"
+        },
+        {
+            "type": "q_a",
+            "id": 5,
+            "title": "Question & Answer",
+            "questions": [
+                {
+                    "id":1,
+                    "question": "question 1",
+                    "name": "name",
+                    "likes": 4
+                },
+                {
+                    "id":2,
+                    "question": "question 2",
+                    "name": "other name",
+                    "likes": 2
+                }
+            ]
+        }
+    ]
+}

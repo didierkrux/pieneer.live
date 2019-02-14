@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mobile - Event</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="/css/event.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/img/pieneer_logo.svg"> Pieneer</a>
+        </div>
+        <ul class="navbar-nav navbar-text">
+            <li>
+                <a href="#" alt="Edit User Name" data-toggle="modal" data-target="#editNameModal">
+                    <i class="fas fa-user fa-lg"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/" alt="Exit event">
+                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="nav nav-tabs justify-content-center mt-3" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Info</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="qa-tab" data-toggle="tab" href="#qa" role="tab" aria-controls="qa" aria-selected="false">Questions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="poll-tab" data-toggle="tab" href="#poll" role="tab" aria-controls="poll" aria-selected="false">Polls
+                <span class="badge badge-pill">
+                    <img width="26" src="/img/poll-dots.svg">
+                </span>
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <div class="container">
+
+            </div>
+        </div>
+        <div class="tab-pane qa fade" id="qa" role="tabpanel" aria-labelledby="qa-tab">
+            <div class="container">
+                <h3>Ask the speaker</h3>
+            </div>
+            <ul class="list-group questions">
+            </ul>
+
+            <form id="send_question" class="fixed-bottom" action="/api/question" method="POST">
+                <div class="d-flex">
+                    <input class="form-control" id="question" type="text" placeholder="Type your question" autocomplete="off">
+                    <div class="ml-auto justify-content-end">
+                        <input class="btn btn-primary float-right" id="submit" type="submit" value="Send">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="poll" role="tabpanel" aria-labelledby="poll-tab">
+            <form id="send_vote" action="#">
+                <div class="container">
+                    <h3>Live poll</h3>
+                    <p id="poll_question">
+                        
+                    </p>
+                </div>
+                <ul class="list-group poll">
+                    
+                </ul>
+                <div class="text-center mt-3">
+                    <input class="btn btn-primary" id="submit-poll" type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Name Modal -->
+    <div class="modal fade" id="editNameModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="form-name">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" value="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary savename">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+    <script src="/js/event.js"></script>
+</body>
+
+</html>

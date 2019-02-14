@@ -1,0 +1,68 @@
+body {
+    height: 100vh;
+}
+
+.fa-user {
+    color: rgb(153, 157, 159);
+}
+
+.fa-sign-out-alt {
+    color: #ffffff;
+}
+
+ul.navbar-nav {
+    columns: 2;
+}
+
+.fa-thumbs-up {
+    color: gray;
+    width: 38px;
+    text-align: center;
+}
+
+.liked {
+    color: #007bff;
+}
+
+.tab-pane.qa {
+    padding-bottom: 38px;
+}
+
+.badge-pill {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    height: 21px;
+    padding-left: 2px;
+}
+
+.list-group-item:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.poll .list-group-item:nth-child(1) {
+    background: #ffb3c280;
+}
+
+.poll .list-group-item:nth-child(2) {
+    background: #aae0df80;
+}
+
+.poll .list-group-item:nth-child(3) {
+    background: #9fd0f680;
+}
+
+.poll .list-group-item:nth-child(4) {
+    background: #ffe6ad80;
+}
+
+.poll .list-group-item:nth-child(5) {
+    background: #ccb3ff80;
+}
+
+.poll .list-group-item:nth-child(6) {
+    background: #ffd0a280;
+}
+
+.navbar-brand img {
+    width: 27px;
+}

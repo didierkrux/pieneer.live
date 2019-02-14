@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pieneer - Live Presentation made Interactive and Easy</title>
+    <!-- google login-->
+    <!-- <meta name="google-signin-client_id" content="976623563011-b70ot73gqn26b87jc02jacdg726tce7s.apps.googleusercontent.com"> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="/css/main_desktop.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/"><img src="/img/pieneer_logo.svg"> Pieneer</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="edit_presentation.html">Edit Presentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="presentation.html">Play Presentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/html_mock-up/mobile/">Mobile</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav navbar-text">
+            <li>
+                <button type="button" class="btn btn-primary login" data-toggle="modal" data-target="#loginModal">Login / Signup</button>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary edit-user" alt="Edit User Name" data-toggle="modal" data-target="#editUserModal">
+                    Edit user infos
+                </button>
+            </li>
+            <li>
+                <button type="submit" value="Sign out" class="btn btn-primary signout">
+                    <a href="/logout" onclick="signOut();" action="/logout">Sign out</a>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+
+                    <ul class="list-group questions">
+                    </ul>
+
+                    <ul class="nav nav-tabs justify-content-center mt-3" id="loginTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="sigunp" aria-selected="false">SignUp</a>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="/login" method="post">
+                        <div>
+                            <label>username:</label>
+                            <input type="text" name="username" />
+                        </div>
+                        <div>
+                            <label>Password:</label>
+                            <input type="password" name="password" />
+                        </div>
+                        <div>
+                            <a href="/auth/facebook">facebook login</a>
+                        </div>
+                        <div>
+                            <a href="/auth/google">google login</a>
+                        </div>
+                        <div>
+                            <a href="/auth/linkedin">linkedIn login</a>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" value="Log in" class="btn btn-primary">Log In</button>
+                    </form>
+
+                    <form action="/signup" method="post">
+                        <div>
+                            <label>username:</label>
+                            <input type="text" name="username" />
+                        </div>
+                        <div>
+                            <label>Password:</label>
+                            <input type="password" name="password" />
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" value="sign up" class="btn btn-primary">sign up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit user infos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/api/users" method="PUT" id="form-user">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="first_name">Firstname</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="first_name" id="firstname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="last_name">Lastname</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="last_name" id="lastname">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="email">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="email" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="phone">Phone</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="phone" id="phone">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="company">Company</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" name="company" id="company">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary save-user">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script>
+    //google log-in
+    $('#login').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+
+    //google sign-out
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+    (function ($) {
+        $.fn.serializeFormJSON = function () {
+
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name]) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+    })(jQuery);
+
+    $('#sign-up').on('hidden.bs.modal', function (e) {
+        // do something...
+    })
+
+    $('.edit-user').click((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: '/api/users', // id
+            type: 'get'
+        }).then((data) => {
+            $('#firstname').val(data[0]['first_name']);
+            $('#lastname').val(data[0]['last_name']);
+            $('#email').val(data[0]['email']);
+            $('#phone').val(data[0]['phone']);
+            $('#company').val(data[0]['company']);
+            console.log('your user info is here');
+        });
+    })
+
+
+    $('.save-user').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/api/users', // id
+            type: 'PUT',
+            data: JSON.stringify($('#form-user').serializeFormJSON()),
+            dataType: "json",
+            contentType: "application/json"
+        }).then((data) => {
+            console.log('user infos updated');
+        });
+    });
+</script>
+
+</html>

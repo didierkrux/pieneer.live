@@ -1,0 +1,20 @@
+.fa-user {
+    color: rgb(153, 157, 159);
+}
+
+.fa-sign-out-alt {
+    color: #ffffff;
+}
+
+ul.navbar-nav {
+    columns: 3;
+}
+
+.navbar-text {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand img {
+    width: 40px;
+}

@@ -1,0 +1,85 @@
+.container-fluid {
+    height: calc(100vh - 58px);
+    overflow: hidden;
+}
+
+div.list {
+    width: 250px;
+    overflow-y: scroll;
+}
+
+.list .slide {
+    padding-bottom: 50px;
+    min-height: 150px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.slide img, .slide div {
+    width: 200px;
+    min-height: 150px;
+    border: 1px solid rgba(0, 0, 0, .20);
+    margin: auto;
+}
+
+.slide div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide.active img, .slide.active div {
+    border: 2px solid rgba(0,123,255,.5);
+}
+
+.actions {
+    position: absolute;
+}
+
+#dropzone {
+    margin-bottom: 3rem;
+}
+
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+    margin: 10%;
+}
+
+.dropzone .dz-message {
+    font-weight: 400;
+}
+
+.dropzone .dz-message .note {
+    font-size: 0.8em;
+    font-weight: 200;
+    display: block;
+    margin-top: 1.4rem;
+}
+
+.preview {
+    border-left: 2px solid rgba(0, 0, 0, .20);
+    /* background-color: black; */
+    width: calc(100vw - 250px);
+}
+
+.preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+.save-play {
+    text-align: center;
+}
+
+#save-presentation:hover {
+    text-decoration: none;
+}
+
+.alert-warning {
+    position: absolute;
+    top: 62px;
+    right: 5px;
+    display: none;
+}

@@ -1,0 +1,8 @@
+**/.DS_Store
+**/node_modules/
+/public/slides/
+.env
+.vscode
+/public/js/zwibbler.js
+/public/js/zwibbler2.js
+/public/js/z.js

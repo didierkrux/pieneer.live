@@ -1,0 +1,10 @@
+{
+    "question": "Poll question?",
+    "graph_type": "pie",
+    "answers": [
+        "response 1",
+        "response 2",
+        "response 3",
+        "response 4"
+    ]
+}

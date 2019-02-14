@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Presentation | powered by Pieneer - Live Presentation made Interactive and Easy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="/css/presentation.css">
+</head>
+
+<body>
+    <div id="presentation">
+    </div>
+    <div id="drawing"></div>
+
+    <div class="control presentation-control">
+        <a href="#" class="previous-slide" data-toggle="tooltip" data-placement="bottom" title="Previous slide [left]" data-shortcut="left">
+            <i class="fas fa-arrow-alt-circle-left fa-2x"></i>
+        </a>
+        <a data-toggle="tooltip" data-placement="bottom" title="Dashboard" href="/html_mock-up/desktop/dashboard.html">
+            <i class="fas fa-th fa-2x"></i>
+        </a>
+        <a href="#" class="toggle-fullscreen" data-toggle="tooltip" data-placement="bottom" title="Toggle Fullscreen [ f ]" data-shortcut="f">
+            <i class="fas fa-desktop fa-2x"></i>
+        </a>
+        <a href="#" class="next-slide" data-toggle="tooltip" data-placement="bottom" title="Next slide [right]" data-shortcut="right">
+            <i class="fas fa-arrow-alt-circle-right fa-2x"></i>
+        </a>
+    </div>
+    <div class="control drawing-control">
+        <div class="tools">
+            <a href="#" class="select" data-toggle="tooltip" data-placement="bottom" title="Select [ v ]" data-shortcut="v">
+                <img src="/img/select-tool.svg">
+            </a>
+            <a href="#" class="pen" data-toggle="tooltip" data-placement="bottom" title="Pen [ p ]" data-shortcut="p">
+                <img src="/img/pen-tool.svg">
+            </a>
+            <a href="#" class="eraser" data-toggle="tooltip" data-placement="bottom" title="Eraser [ e ]" data-shortcut="e">
+                <img src="/img/eraser-tool.svg">
+            </a>
+            <a href="#" class="rectangle" data-toggle="tooltip" data-placement="bottom" title="Rectangle [ r ]" data-shortcut="r">
+                <img src="/img/rectangle-tool.svg">
+            </a>
+            <a href="#" class="line" data-toggle="tooltip" data-placement="bottom" title="Line(s) [ l ]" data-shortcut="l">
+                <img src="/img/line-tool.svg">
+            </a>
+            <a href="#" class="circle" data-toggle="tooltip" data-placement="bottom" title="Circle [ c ]" data-shortcut="c">
+                <img src="/img/circle-tool.svg">
+            </a>
+            <a href="#" class="text" data-toggle="tooltip" data-placement="bottom" title="Text [ t ]" data-shortcut="t">
+                <img src="/img/text-tool.svg">
+            </a>
+            <a href="#" class="background" data-toggle="tooltip" data-placement="bottom" title="White background [ w ]" data-shortcut="w">
+                <img src="/img/background-tool.svg">
+            </a>
+            <a href="#" class="undo" data-toggle="tooltip" data-placement="bottom" title="Undo [ u ]" data-shortcut="u">
+                <img src="/img/undo-tool.svg">
+            </a>
+            <a href="#" class="redo" data-toggle="tooltip" data-placement="bottom" title="Redo [ U ]" data-shortcut="shift+u">
+                <img src="/img/redo-tool.svg">
+            </a>
+        </div>
+        <div class="colors">
+            <a href="#" class="color-black" data-toggle="tooltip" data-placement="bottom" title="Black [ 1 ]" data-shortcut="1">
+                <div></div>
+            </a>
+            <a href="#" class="color-red" data-toggle="tooltip" data-placement="bottom" title="Red [ 2 ]" data-shortcut="2">
+                <div></div>
+            </a>
+            <a href="#" class="color-green" data-toggle="tooltip" data-placement="bottom" title="Green [ 3 ]" data-shortcut="3">
+                <div></div>
+            </a>
+            <a href="#" class="color-blue" data-toggle="tooltip" data-placement="bottom" title="Blue [ 4 ]" data-shortcut="4">
+                <div></div>
+            </a>
+            <a href="#" class="color-yellow" data-toggle="tooltip" data-placement="bottom" title="Yellow [ 5 ]" data-shortcut="5">
+                <div></div>
+            </a>
+            <a href="#" class="color-purple" data-toggle="tooltip" data-placement="bottom" title="Purple [ 6 ]" data-shortcut="6">
+                <div></div>
+            </a>
+            <a href="#" class="color-pink" data-toggle="tooltip" data-placement="bottom" title="Pink [ 7 ]" data-shortcut="7">
+                <div></div>
+            </a>
+            <a href="#" class="color-brown" data-toggle="tooltip" data-placement="bottom" title="Brown [ 8 ]" data-shortcut="8">
+                <div></div>
+            </a>
+            <a href="#" class="color-grey" data-toggle="tooltip" data-placement="bottom" title="Grey [ 9 ]" data-shortcut="9">
+                <div></div>
+            </a>
+            <a href="#" class="color-white" data-toggle="tooltip" data-placement="bottom" title="White [ 0 ]" data-shortcut="0">
+                <div></div>
+            </a>
+        </div>
+    </div>
+    <div id="url" class="text-center">
+        link
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.hotkeys@0.1.0/jquery.hotkeys.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="/js/z.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="/js/presentation.js"></script>
+</body>
+
+</html>
